@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bulb On/Off</title>
+  </head>
+<body>
+  <div class="container">
+    <h2>Bulb On/Off</h2>
+    <img id="bulb" src="C:\Users\Public\Pictures\Sample Pictures\New folder\Chrysanthemum.jpg" alt="Bulb Off">
+    <br>
+    <button id="on-button">Turn On</button>
+    <button id="off-button">Turn Off</button>
+  </div>
+
+  <script>
+    const bulb = document.getElementById("bulb");
+    const onButton = document.getElementById("on-button");
+    const offButton = document.getElementById("off-button");
+
+  
+    const bulbOnImage = "C:\Users\Public\Pictures\Sample Pictures\New folder\Chrysanthemum.jpg";
+    const bulbOffImage = "C:\Users\Public\Pictures\Sample Pictures\New folder\Chrysanthemum.jpg";
+
+    onButton.addEventListener("click", () => {
+      bulb.src = bulbOnImage;
+      onButton.disabled = true;
+      offButton.disabled = false;
+    });
+
+    offButton.addEventListener("click", () => {
+      bulb.src = bulbOffImage;
+      onButton.disabled = false;
+      offButton.disabled = true;
+    });
+
+  
+    offButton.disabled = true;
+  </script>
+</body>
+</html>

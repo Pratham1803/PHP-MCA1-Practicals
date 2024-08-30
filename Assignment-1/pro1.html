@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Authentication</title>
+</head>
+<body>
+  <h1>Login Authentication</h1>
+  <form>
+    <label for="loginId">Login ID:</label>
+    <input type="text" id="loginId" name="loginId"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button onclick="authenticateUser()">Login</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+
+    const users = [
+      { loginId: "user1", password: "password1" },
+      { loginId: "user2", password: "password2" },
+      { loginId: "admin", password: "admin123" }
+    ];
+
+    function authenticateUser() 
+	{
+      const loginId = document.getElementById("loginId").value;
+      const password = document.getElementById("password").value;
+
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].loginId === loginId && users[i].password === password) {
+          document.getElementById("result").innerHTML = "Login successful!";
+          return;
+        }
+      }
+
+      document.getElementById("result").innerHTML = "Invalid login ID or password.";
+    }
+  </script>
+</body>
+</html>

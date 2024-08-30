@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      margin: 20px;
+    }
+    label {
+      display: inline-block;
+      width: 100px;
+    }
+    input, select {
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 5px 10px;
+    }
+    #output {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Details</h1>
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    <label for="email">Email ID:</label>
+    <input type="email" id="email" name="email" required><br>
+    <label for="contactNo">Contact No:</label>
+    <input type="tel" id="contactNo" name="contactNo" required><br>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br>
+    <button type="button" onclick="displayUserDetails()">Submit</button>
+  </form>
+  <div id="output"></div>
+
+  <script>
+    function displayUserDetails() {
+      
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const contactNo = document.getElementById("contactNo").value;
+      const gender = document.getElementById("gender").value;
+      const city = document.getElementById("city").value;
+
+      const output = `
+        <h2>User Details</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email ID:</strong> ${email}</p>
+        <p><strong>Contact No:</strong> ${contactNo}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>City:</strong> ${city}</p>
+      `;
+
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

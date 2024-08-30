@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Calculator</title>
+</head>
+<body>
+  <h1>Tax Calculator</h1>
+  <form onsubmit="calculateTax(event)">
+    <label for="income">Enter your income:</label>
+    <input type="number" id="income" name="income"><br><br>
+    <button type="submit">Calculate Tax</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    function calculateTax(event) {
+     
+      event.preventDefault();
+      
+      const income = parseFloat(document.getElementById("income").value);
+      let tax = 0;
+
+      if (income <= 300000) {
+        tax = 0;
+      } else if (income <= 600000) {
+        tax = (income - 300000) * 0.05;
+      } else if (income <= 900000) {
+        tax = 15000 + (income - 600000) * 0.10;
+      } else if (income <= 1200000) {
+        tax = 45000 + (income - 900000) * 0.15;
+      } else if (income <= 1500000) {
+        tax = 90000 + (income - 1200000) * 0.20;
+      } else {
+        tax = 150000 + (income - 1500000) * 0.30;
+      }
+
+      document.getElementById("result").innerHTML = `Your tax is: ${tax.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Result</title>
+  
+</head>
+<body>
+  <div class="container">
+    <h2>Student Result</h2>
+    <form>
+      <label for="name">Student Name:</label>
+      <input type="text" id="name" value=""><br><br>
+      <label for="subject1">Subject 1:</label>
+      <input type="number" id="subject1" value="0"><br><br>
+      <label for="subject2">Subject 2:</label>
+      <input type="number" id="subject2" value="0"><br><br>
+      <label for="subject3">Subject 3:</label>
+      <input type="number" id="subject3" value="0"><br><br>
+      <label for="subject4">Subject 4:</label>
+      <input type="number" id="subject4" value="0"><br><br>
+      <label for="subject5">Subject 5:</label>
+      <input type="number" id="subject5" value="0"><br><br>
+      <button type="button" onclick="calculateResult()">Calculate Result</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const name = document.getElementById("name").value;
+      const subject1 = parseFloat(document.getElementById("subject1").value);
+      const subject2 = parseFloat(document.getElementById("subject2").value);
+      const subject3 = parseFloat(document.getElementById("subject3").value);
+      const subject4 = parseFloat(document.getElementById("subject4").value);
+      const subject5 = parseFloat(document.getElementById("subject5").value);
+
+      const total = subject1 + subject2 + subject3 + subject4 + subject5;
+      const percentage = (total / 500) * 100;
+
+      const resultHtml = `
+        <h2>Result of ${name}</h2>
+        <table>
+          <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+          </tr>
+          <tr>
+            <td>Subject 1</td>
+            <td>${subject1}</td>
+          </tr>
+          <tr>
+            <td>Subject 2</td>
+            <td>${subject2}</td>
+          </tr>
+          <tr>
+            <td>Subject 3</td>
+            <td>${subject3}</td>
+          </tr>
+          <tr>
+            <td>Subject 4</td>
+            <td>${subject4}</td>
+          </tr>
+          <tr>
+            <td>Subject 5</td>
+            <td>${subject5}</td>
+          </tr>
+          <tr>
+            <td><b>Total</b></td>
+            <td><b>${total}</b></td>
+          </tr>
+          <tr>
+            <td><b>Percentage</b></td>
+            <td><b>${percentage.toFixed(2)}%</b></td>
+          </tr>
+        </table>
+      `;
+
+      document.getElementById("result").innerHTML = resultHtml;
+    }
+  </script>
+</body>
+</html>
