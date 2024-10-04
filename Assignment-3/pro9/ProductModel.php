@@ -1,31 +1,25 @@
 <?php
-    class ProductModel{
-        public int $productId;
-        public string $productName;
-        public int $productQuantity;
-        public float $productPrice;
+class ProductModel{
+    private $product_name;
+    private $products_quan;
+    private $product_price;
 
-        public function __construct($productId, $productName,$productQuantity,$productPrice) {
-            $this->productId = $productId;
-            $this->productName = $productName;
-            $this->productQuantity = $productQuantity;
-            $this->productPrice = $productPrice;        
-        }
-
-        // public function  getProductId(){
-        //     return $this->productId;
-        // }
-
-        // public function  getProductName(){
-        //     return $this->productName;
-        // }
-
-        // public function  getProductQuantity(){
-        //     return $this->productQuantity;
-        // }
-
-        // public function  getProductPrice(){
-        //     return $this->productPrice;
-        // }
+    public function __construct($name,$quan,$price) {
+        $this->product_name = $name;
+        $this->products_quan = $quan;
+        $this->product_price = $price;
     }
+
+    public function getProductName(){
+        return $this->product_name;
+    }
+
+    public function getProductQuan(){
+        return $this->products_quan;
+    }
+
+    public function getProductPrice(){
+        return $this->product_price;
+    }
+}
 ?>
